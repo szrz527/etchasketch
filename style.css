@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+div {
+    color: red;
+    height: 50px;
+    width: 50px;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}
