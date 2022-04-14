@@ -1,4 +1,5 @@
 const grid = document.querySelector("#grid");
+const negyzetek = document.querySelector("#grid").childNodes;
 
 function hanynegyzet() {
     let hanydb = prompt("Hány négyzet legyen egy sorban?");
@@ -16,8 +17,17 @@ function negyzetkiir() {
 }
 
 function egerfolotte(e) {
-    //e.target.style.backgroundColor = "black";
+    //e.target.style.backgroundColor = "black"; //ugyanaz az eredménye mintha classt adnánk hozzá
     e.target.classList.add("fekete");
 }
 
+function torles() {
+    negyzetek.forEach((e) => e.classList.remove("fekete"));
+}
+
+torlesgomb.addEventListener("click", () => {
+    torles();
+});
+
 negyzetkiir();
+console.log(negyzetek);
