@@ -1,9 +1,23 @@
-function soknegyzet() {
+const grid = document.querySelector("#grid");
+
+function hanynegyzet() {
     let hanydb = prompt("Hány négyzet legyen egy sorban?");
+    return hanydb;
 }
 
-const halozat = document.createElement("div");
+function negyzetkiir() {
+    //let j = hanynegyzet();
+    for (let i = 0; i < 100; i++) {
+        let negyzet = document.createElement("div");
+        negyzet.classList.add("halozat");
+        negyzet.addEventListener("mouseover", egerfolotte);
+        grid.appendChild(negyzet);
+    }
+}
 
-halozat.textContent = "WTF";
+function egerfolotte(e) {
+    //e.target.style.backgroundColor = "black";
+    e.target.classList.add("fekete");
+}
 
-grid.appendChild(halozat);
+negyzetkiir();
