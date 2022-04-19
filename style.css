@@ -7,12 +7,16 @@ body {
 div.halozat {
     display: inline-block;
     color: red;
-    height: 70px;
-    width: 70px;
+    height: var(--size);
+    width: var(--size);
     border-style: solid;
     border-color: grey;
     border-width: 1px;
     padding-left: 0px;
+}
+
+:root {
+    --size: 70px;
 }
 
 .fekete {

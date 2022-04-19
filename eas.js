@@ -1,5 +1,5 @@
 const grid = document.querySelector("#grid");
-//const osztaly = document.querySelector(":halozat");
+const root = document.querySelector(":root");
 
 function hanynegyzet() {
     let hanydb = prompt("Hány négyzet legyen egy sorban?");
@@ -7,10 +7,11 @@ function hanynegyzet() {
 }
 
 function negyzetkiir() {
-//    let j = hanynegyzet();
-//    let szelesseg = 720/j;
-//    osztaly.style.setProperty("--size", + szelesseg);
-    for (let i = 0; i < 100; i++) {
+    let j = hanynegyzet();
+    let szelesseg = (j > 60) ? 10 : 720 / j - 2;
+    console.log(szelesseg);
+    root.style.setProperty("--size", + szelesseg + "px");
+    for (let i = 0; i < (j*j); i++) {
         let negyzet = document.createElement("div");
         negyzet.classList.add("halozat");
         negyzet.addEventListener("mouseover", egerfolotte);
