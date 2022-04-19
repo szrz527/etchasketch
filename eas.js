@@ -1,5 +1,5 @@
 const grid = document.querySelector("#grid");
-const negyzetek = document.querySelector("#grid").childNodes;
+//const osztaly = document.querySelector(":halozat");
 
 function hanynegyzet() {
     let hanydb = prompt("Hány négyzet legyen egy sorban?");
@@ -7,7 +7,9 @@ function hanynegyzet() {
 }
 
 function negyzetkiir() {
-    //let j = hanynegyzet();
+//    let j = hanynegyzet();
+//    let szelesseg = 720/j;
+//    osztaly.style.setProperty("--size", + szelesseg);
     for (let i = 0; i < 100; i++) {
         let negyzet = document.createElement("div");
         negyzet.classList.add("halozat");
@@ -17,12 +19,16 @@ function negyzetkiir() {
 }
 
 function egerfolotte(e) {
-    //e.target.style.backgroundColor = "black"; //ugyanaz az eredménye mintha classt adnánk hozzá
-    e.target.classList.add("fekete");
+    e.target.style.backgroundColor = "rgb(0,0,0)"; //ugyanaz az eredménye mintha classt adnánk hozzá
+    //e.target.classList.add("fekete");
 }
 
 function torles() {
-    negyzetek.forEach((e) => e.classList.remove("fekete"));
+    let grid = document.getElementById("grid");
+    while (grid.firstChild) {
+        grid.removeChild(grid.firstChild);
+    }
+    negyzetkiir();
 }
 
 torlesgomb.addEventListener("click", () => {
@@ -30,4 +36,3 @@ torlesgomb.addEventListener("click", () => {
 });
 
 negyzetkiir();
-console.log(negyzetek);
