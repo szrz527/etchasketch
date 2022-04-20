@@ -9,19 +9,24 @@ function hanynegyzet() {
 function negyzetkiir() {
     let j = hanynegyzet();
     let szelesseg = (j > 60) ? 10 : 720 / j - 2;
-    console.log(szelesseg);
     root.style.setProperty("--size", + szelesseg + "px");
     for (let i = 0; i < (j*j); i++) {
         let negyzet = document.createElement("div");
         negyzet.classList.add("halozat");
-        negyzet.addEventListener("mouseover", egerfolotte);
+        negyzet.addEventListener("mouseover", egerfolotte_random);
         grid.appendChild(negyzet);
     }
 }
 
-function egerfolotte(e) {
-    e.target.style.backgroundColor = "rgb(0,0,0)"; //ugyanaz az eredménye mintha classt adnánk hozzá
-    //e.target.classList.add("fekete");
+function egerfolotte_fekete(e) {
+    e.target.style.backgroundColor = "rgb(0,0,0)";
+}
+
+function egerfolotte_random(e) {
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    e.target.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
 }
 
 function torles() {

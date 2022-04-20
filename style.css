@@ -4,6 +4,10 @@ body {
     flex-direction: row;
 }
 
+:root {
+    --size: 70px;
+}
+
 div.halozat {
     display: inline-block;
     color: red;
@@ -13,14 +17,6 @@ div.halozat {
     border-color: grey;
     border-width: 1px;
     padding-left: 0px;
-}
-
-:root {
-    --size: 70px;
-}
-
-.fekete {
-    background-color: black;
 }
 
 #grid {
