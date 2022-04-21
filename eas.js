@@ -1,5 +1,6 @@
 const grid = document.querySelector("#grid");
 const root = document.querySelector(":root");
+const negyzetek = document.querySelector("#grid").childNodes;
 
 function hanynegyzet() {
     let hanydb = prompt("Hány négyzet legyen egy sorban?");
@@ -30,11 +31,9 @@ function egerfolotte_random(e) {
 }
 
 function torles() {
-    let grid = document.getElementById("grid");
-    while (grid.firstChild) {
-        grid.removeChild(grid.firstChild);
-    }
-    negyzetkiir();
+    negyzetek.forEach((e) => {
+        e.style.backgroundColor = "white";
+    });
 }
 
 torlesgomb.addEventListener("click", () => {
@@ -42,3 +41,4 @@ torlesgomb.addEventListener("click", () => {
 });
 
 negyzetkiir();
+console.log(negyzetek);

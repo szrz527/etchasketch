@@ -1,14 +1,15 @@
 body {
-    margin: 10px;
+    margin: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 :root {
     --size: 70px;
 }
 
-div.halozat {
+.halozat {
     display: inline-block;
     color: red;
     height: var(--size);
