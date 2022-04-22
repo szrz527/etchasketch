@@ -7,17 +7,21 @@ body {
 
 :root {
     --size: 70px;
+    --bgcolor: rgb(255,255,255);
 }
 
 .halozat {
     display: inline-block;
-    color: red;
     height: var(--size);
     width: var(--size);
     border-style: solid;
     border-color: grey;
     border-width: 1px;
     padding-left: 0px;
+}
+
+.festett {
+    background-color: var(--bgcolor);
 }
 
 #grid {

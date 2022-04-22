@@ -14,13 +14,16 @@ function negyzetkiir() {
     for (let i = 0; i < (j*j); i++) {
         let negyzet = document.createElement("div");
         negyzet.classList.add("halozat");
-        negyzet.addEventListener("mouseover", egerfolotte_random);
+        negyzet.addEventListener("mouseover", egerfolotte_fekete);
         grid.appendChild(negyzet);
     }
 }
 
+root.style.setProperty("--bgcolor", "rgb(100,100,100)");
+
 function egerfolotte_fekete(e) {
-    e.target.style.backgroundColor = "rgb(0,0,0)";
+    //e.target.style.backgroundColor = "rgb(0,0,0)";
+    e.target.classList.add("festett");
 }
 
 function egerfolotte_random(e) {
@@ -31,8 +34,11 @@ function egerfolotte_random(e) {
 }
 
 function torles() {
+    /*negyzetek.forEach((e) => {
+        e.style.backgroundColor = "rgb(255,255,255)";
+    });*/
     negyzetek.forEach((e) => {
-        e.style.backgroundColor = "white";
+        e.classList.remove("festett");
     });
 }
 
