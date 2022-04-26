@@ -2,16 +2,20 @@ const grid = document.querySelector("#grid");
 const root = document.querySelector(":root");
 const negyzetek = document.querySelector("#grid").childNodes;
 
+let hanydb;
+
 function hanynegyzet() {
-    let hanydb = prompt("Hány négyzet legyen egy sorban?");
-    return hanydb;
+    hanydb = prompt("Hány négyzet legyen egy sorban?");
+    //return hanydb;
+    let szelesseg = (hanydb > 60) ? 10 : 720 / hanydb - 2;
+    root.style.setProperty("--size", + szelesseg + "px");
 }
 
-function negyzetkiir() {
-    let j = hanynegyzet();
+function negyzetkiir_fekete() {
+    /*let j = hanynegyzet();
     let szelesseg = (j > 60) ? 10 : 720 / j - 2;
-    root.style.setProperty("--size", + szelesseg + "px");
-    for (let i = 0; i < (j*j); i++) {
+    root.style.setProperty("--size", + szelesseg + "px");*/
+    for (let i = 0; i < (hanydb * hanydb); i++) {
         let negyzet = document.createElement("div");
         negyzet.classList.add("halozat");
         negyzet.addEventListener("mouseover", egerfolotte_fekete);
@@ -19,9 +23,20 @@ function negyzetkiir() {
     }
 }
 
-root.style.setProperty("--bgcolor", "rgb(100,100,100)");
+function negyzetkiir_random() {
+    /*let j = hanynegyzet();
+    let szelesseg = (j > 60) ? 10 : 720 / j - 2;
+    root.style.setProperty("--size", + szelesseg + "px");*/
+    for (let i = 0; i < (hanydb * hanydb); i++) {
+        let negyzet = document.createElement("div");
+        negyzet.classList.add("halozat");
+        negyzet.addEventListener("mouseover", egerfolotte_random);
+        grid.appendChild(negyzet);
+    }
+}
 
 function egerfolotte_fekete(e) {
+    root.style.setProperty("--bgcolor", "rgb(0,0,0)");
     //e.target.style.backgroundColor = "rgb(0,0,0)";
     e.target.classList.add("festett");
 }
@@ -39,6 +54,7 @@ function torles() {
     });*/
     negyzetek.forEach((e) => {
         e.classList.remove("festett");
+        e.style.backgroundColor = "rgb(255,255,255)";
     });
 }
 
@@ -46,5 +62,9 @@ torlesgomb.addEventListener("click", () => {
     torles();
 });
 
-negyzetkiir();
-console.log(negyzetek);
+feketegomb.addEventListener("click", () => {
+    negyzetkiir_fekete();
+});
+
+hanynegyzet();
+negyzetkiir_random();
