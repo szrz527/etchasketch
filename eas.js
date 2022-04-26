@@ -45,11 +45,7 @@ function egerfolotte_random(e) {
 }
 
 function torles() {
-    /*negyzetek.forEach((e) => {
-        e.style.backgroundColor = "rgb(255,255,255)";
-    });*/
     negyzetek.forEach((e) => {
-        //e.classList.remove("festett");
         e.style.backgroundColor = "rgb(255,255,255)";
     });
 }
