@@ -21,13 +21,15 @@ function negyzetkiir() {
 
 function negyzetkiir_fekete() {
     negyzetek.forEach((e) => {
-        e.addEventListener("mouseover", egerfolotte_fekete)
+        e.removeEventListener("mouseover", egerfolotte_random);
+        e.addEventListener("mouseover", egerfolotte_fekete);
     });
 }
 
 function negyzetkiir_random() {
     negyzetek.forEach((e) => {
-        e.addEventListener("mouseover", egerfolotte_random)
+        e.removeEventListener("mouseover", egerfolotte_fekete);
+        e.addEventListener("mouseover", egerfolotte_random);
     });
 }
 
@@ -43,7 +45,6 @@ function egerfolotte_random(e) {
 }
 
 function torles() {
-    negyzetkiir();
     /*negyzetek.forEach((e) => {
         e.style.backgroundColor = "rgb(255,255,255)";
     });*/
