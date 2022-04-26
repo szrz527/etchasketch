@@ -6,27 +6,11 @@ let hanydb;
 
 function hanynegyzet() {
     hanydb = prompt("Hány négyzet legyen egy sorban?");
-    //return hanydb;
     let szelesseg = (hanydb > 60) ? 10 : 720 / hanydb - 2;
     root.style.setProperty("--size", + szelesseg + "px");
 }
 
-function negyzetkiir_fekete() {
-    /*let j = hanynegyzet();
-    let szelesseg = (j > 60) ? 10 : 720 / j - 2;
-    root.style.setProperty("--size", + szelesseg + "px");*/
-    for (let i = 0; i < (hanydb * hanydb); i++) {
-        let negyzet = document.createElement("div");
-        negyzet.classList.add("halozat");
-        negyzet.addEventListener("mouseover", egerfolotte_fekete);
-        grid.appendChild(negyzet);
-    }
-}
-
-function negyzetkiir_random() {
-    /*let j = hanynegyzet();
-    let szelesseg = (j > 60) ? 10 : 720 / j - 2;
-    root.style.setProperty("--size", + szelesseg + "px");*/
+function negyzetkiir() {
     for (let i = 0; i < (hanydb * hanydb); i++) {
         let negyzet = document.createElement("div");
         negyzet.classList.add("halozat");
@@ -35,10 +19,20 @@ function negyzetkiir_random() {
     }
 }
 
+function negyzetkiir_fekete() {
+    negyzetek.forEach((e) => {
+        e.addEventListener("mouseover", egerfolotte_fekete)
+    });
+}
+
+function negyzetkiir_random() {
+    negyzetek.forEach((e) => {
+        e.addEventListener("mouseover", egerfolotte_random)
+    });
+}
+
 function egerfolotte_fekete(e) {
-    root.style.setProperty("--bgcolor", "rgb(0,0,0)");
-    //e.target.style.backgroundColor = "rgb(0,0,0)";
-    e.target.classList.add("festett");
+    e.target.style.backgroundColor = "rgb(0,0,0)";
 }
 
 function egerfolotte_random(e) {
@@ -49,11 +43,12 @@ function egerfolotte_random(e) {
 }
 
 function torles() {
+    negyzetkiir();
     /*negyzetek.forEach((e) => {
         e.style.backgroundColor = "rgb(255,255,255)";
     });*/
     negyzetek.forEach((e) => {
-        e.classList.remove("festett");
+        //e.classList.remove("festett");
         e.style.backgroundColor = "rgb(255,255,255)";
     });
 }
@@ -66,5 +61,9 @@ feketegomb.addEventListener("click", () => {
     negyzetkiir_fekete();
 });
 
+randomgomb.addEventListener("click", () => {
+    negyzetkiir_random();
+});
+
 hanynegyzet();
-negyzetkiir_random();
+negyzetkiir();
