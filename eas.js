@@ -65,5 +65,13 @@ randomgomb.addEventListener("click", () => {
     negyzetkiir_random();
 });
 
+ujgomb.addEventListener("click", () => {
+    while (grid.hasChildNodes()) {
+        grid.removeChild(grid.firstChild);
+      }
+    hanynegyzet();
+    negyzetkiir();
+});
+
 hanynegyzet();
 negyzetkiir();
