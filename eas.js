@@ -6,7 +6,10 @@ let hanydb;
 
 function hanynegyzet() {
     hanydb = prompt("Hány négyzet legyen egy sorban?");
-    let szelesseg = (hanydb > 60) ? 10 : 720 / hanydb - 2;
+    if (hanydb > 30) {
+        hanydb = 30;
+    }
+    let szelesseg = 480 / hanydb - 2;
     root.style.setProperty("--size", + szelesseg + "px");
 }
 
@@ -19,17 +22,27 @@ function negyzetkiir() {
     }
 }
 
-function negyzetkiir_fekete() {
+function negyzetszinez_fekete() {
     negyzetek.forEach((e) => {
         e.removeEventListener("mouseover", egerfolotte_random);
+        e.removeEventListener("mouseover", egerfolotte_arny);
         e.addEventListener("mouseover", egerfolotte_fekete);
     });
 }
 
-function negyzetkiir_random() {
+function negyzetszinez_random() {
     negyzetek.forEach((e) => {
         e.removeEventListener("mouseover", egerfolotte_fekete);
+        e.removeEventListener("mouseover", egerfolotte_arny);
         e.addEventListener("mouseover", egerfolotte_random);
+    });
+}
+
+function negyzetszinez_arny() {
+    negyzetek.forEach((e) => {
+        e.removeEventListener("mouseover", egerfolotte_fekete);
+        e.removeEventListener("mouseover", egerfolotte_random);
+        e.addEventListener("mouseover", egerfolotte_arny);
     });
 }
 
@@ -44,6 +57,36 @@ function egerfolotte_random(e) {
     e.target.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
 }
 
+function egerfolotte_arny(e) {
+    let rgb = e.target.style.backgroundColor;
+    let text = rgb.split(",");
+    let red = (text[0].slice(4));
+    let green, blue;
+    if (text[1].length == 2) {
+        green = (text[1].slice(1,2));
+    }
+    else if (text[1].length == 3) {
+        green = (text[1].slice(1,3));
+    }
+    else if (text[1].length == 4) {
+        green = (text[1].slice(1,4));
+    }
+    if (text[2].length == 3) {
+        blue = (text[2].slice(1,2));
+    }
+    else if (text[2].length == 4) {
+        blue = (text[2].slice(1,3));
+    }
+    else if (text[2].length == 5) {
+        blue = (text[2].slice(1,4));
+    }
+    console.log(red,green,blue);
+    red = red - 20;
+    blue = blue - 20;
+    green = green - 20;
+    e.target.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+}
+
 function torles() {
     negyzetek.forEach((e) => {
         e.style.backgroundColor = "rgb(255,255,255)";
@@ -55,11 +98,15 @@ torlesgomb.addEventListener("click", () => {
 });
 
 feketegomb.addEventListener("click", () => {
-    negyzetkiir_fekete();
+    negyzetszinez_fekete();
 });
 
 randomgomb.addEventListener("click", () => {
-    negyzetkiir_random();
+    negyzetszinez_random();
+});
+
+arnygomb.addEventListener("click", () => {
+    negyzetszinez_arny();
 });
 
 ujgomb.addEventListener("click", () => {
