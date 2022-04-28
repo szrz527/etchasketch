@@ -1,14 +1,26 @@
 body {
-    margin: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-content: center;
     justify-content: space-between;
+    margin: 0px;
+    background-color: grey;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 
 :root {
     --size: 70px;
     --bgcolor: rgb(255,255,255);
     --bord_width: 1px;
+}
+
+#gombok {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 30px;
 }
 
 .halozat {
@@ -29,4 +41,12 @@ body {
     border-style: solid;
     border-color: black;
     border-width: 3px;
+}
+
+.footer {
+    background-color: black;
+    color: #e5e7eb;   
+    text-align: center;
+    justify-items: center;
+    padding: 2px;
 }

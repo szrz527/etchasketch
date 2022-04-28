@@ -9,7 +9,13 @@ function hanynegyzet() {
     if (hanydb > 30) {
         hanydb = 30;
     }
-    let szelesseg = 480 / hanydb - 2;
+    let szelesseg;
+    if (root.style.getPropertyValue("--bord_width") == "1px") {
+        szelesseg = 480 / hanydb - 2;
+    }
+    else {
+        szelesseg = 480 / hanydb;
+    }
     root.style.setProperty("--size", + szelesseg + "px");
 }
 
@@ -17,6 +23,7 @@ function negyzetkiir() {
     for (let i = 0; i < (hanydb * hanydb); i++) {
         let negyzet = document.createElement("div");
         negyzet.classList.add("halozat");
+        negyzet.style.backgroundColor = "rgb(255,255,255)";
         negyzet.addEventListener("mouseover", egerfolotte_random);
         grid.appendChild(negyzet);
     }
@@ -59,6 +66,7 @@ function egerfolotte_random(e) {
 
 function egerfolotte_arny(e) {
     let rgb = e.target.style.backgroundColor;
+    console.log(rgb);
     let text = rgb.split(",");
     let red = (text[0].slice(4));
     let green, blue;
@@ -80,7 +88,6 @@ function egerfolotte_arny(e) {
     else if (text[2].length == 5) {
         blue = (text[2].slice(1,4));
     }
-    console.log(red,green,blue);
     red = red - 25;
     blue = blue - 25;
     green = green - 25;
@@ -96,13 +103,13 @@ function torles() {
 function racs_lathato() {
     if ((root.style.getPropertyValue("--bord_width")) == "1px") {
         root.style.setProperty("--bord_width", "0px");
-        let meret = +root.style.getPropertyValue("--size").slice(0,2);
+        let meret = parseFloat(root.style.getPropertyValue("--size"));
         meret += 2;
         root.style.setProperty("--size", + meret + "px");
     }
     else {
         root.style.setProperty("--bord_width", "1px");
-        let meret = +root.style.getPropertyValue("--size").slice(0,2);
+        let meret = parseFloat(root.style.getPropertyValue("--size"));
         meret -= 2;
         root.style.setProperty("--size", + meret + "px");
     }
