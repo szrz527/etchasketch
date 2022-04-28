@@ -1,7 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     justify-content: space-between;
     margin: 0px;
     background-color: grey;
@@ -43,10 +43,9 @@ body {
     border-width: 3px;
 }
 
-.footer {
+#footer {
+    width: 100vw;
     background-color: black;
     color: #e5e7eb;   
     text-align: center;
-    justify-items: center;
-    padding: 2px;
 }
