@@ -16,13 +16,9 @@ body {
     height: var(--size);
     width: var(--size);
     border-style: solid;
-    border-color: grey;
+    border-color: black;
     border-width: var(--bord_width);
     padding-left: 0px;
-}
-
-.festett {
-    background-color: var(--bgcolor);
 }
 
 #grid {
