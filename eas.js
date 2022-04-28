@@ -81,9 +81,9 @@ function egerfolotte_arny(e) {
         blue = (text[2].slice(1,4));
     }
     console.log(red,green,blue);
-    red = red - 20;
-    blue = blue - 20;
-    green = green - 20;
+    red = red - 25;
+    blue = blue - 25;
+    green = green - 25;
     e.target.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
 }
 
@@ -91,6 +91,21 @@ function torles() {
     negyzetek.forEach((e) => {
         e.style.backgroundColor = "rgb(255,255,255)";
     });
+}
+
+function racs_lathato() {
+    if ((root.style.getPropertyValue("--bord_width")) == "1px") {
+        root.style.setProperty("--bord_width", "0px");
+        let meret = +root.style.getPropertyValue("--size").slice(0,2);
+        meret += 2;
+        root.style.setProperty("--size", + meret + "px");
+    }
+    else {
+        root.style.setProperty("--bord_width", "1px");
+        let meret = +root.style.getPropertyValue("--size").slice(0,2);
+        meret -= 2;
+        root.style.setProperty("--size", + meret + "px");
+    }
 }
 
 torlesgomb.addEventListener("click", () => {
@@ -116,6 +131,12 @@ ujgomb.addEventListener("click", () => {
     hanynegyzet();
     negyzetkiir();
 });
+
+racsgomb.addEventListener("click", () => {
+    racs_lathato();
+});
+
+root.style.setProperty("--bord_width", "1px");
 
 hanynegyzet();
 negyzetkiir();

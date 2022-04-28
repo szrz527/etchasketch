@@ -8,6 +8,7 @@ body {
 :root {
     --size: 70px;
     --bgcolor: rgb(255,255,255);
+    --bord_width: 1px;
 }
 
 .halozat {
@@ -16,7 +17,7 @@ body {
     width: var(--size);
     border-style: solid;
     border-color: grey;
-    border-width: 1px;
+    border-width: var(--bord_width);
     padding-left: 0px;
 }
 
@@ -31,5 +32,5 @@ body {
     line-height: 0;
     border-style: solid;
     border-color: black;
-    border-width: 0px;
+    border-width: 3px;
 }
