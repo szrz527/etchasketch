@@ -25,6 +25,7 @@ body {
 
 .halozat {
     display: inline-block;
+    box-sizing: border-box;
     height: var(--size);
     width: var(--size);
     border-style: solid;
@@ -39,8 +40,8 @@ body {
     width: 480px;
     line-height: 0;
     border-style: solid;
-    border-color: red;
-    border-width: 2px;
+    border-color: rgb(0,0,0);
+    border-width: 3px;
 }
 
 #footer {
