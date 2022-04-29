@@ -9,13 +9,13 @@ function hanynegyzet() {
     if (hanydb > 30) {
         hanydb = 30;
     }
-    let szelesseg;
-    if (root.style.getPropertyValue("--bord_width") == "1px") {
+    let szelesseg = 480 / hanydb;
+    /*if (root.style.getPropertyValue("--bord_width") == "1px") {
         szelesseg = 480 / hanydb - 2;
     }
     else {
         szelesseg = 480 / hanydb;
-    }
+    }*/
     root.style.setProperty("--size", + szelesseg + "px");
 }
 
@@ -103,15 +103,15 @@ function torles() {
 function racs_lathato() {
     if ((root.style.getPropertyValue("--bord_width")) == "1px") {
         root.style.setProperty("--bord_width", "0px");
-        let meret = parseFloat(root.style.getPropertyValue("--size"));
+        /*let meret = parseFloat(root.style.getPropertyValue("--size"));
         meret += 2;
-        root.style.setProperty("--size", + meret + "px");
+        root.style.setProperty("--size", + meret + "px");*/
     }
     else {
         root.style.setProperty("--bord_width", "1px");
-        let meret = parseFloat(root.style.getPropertyValue("--size"));
+        /*let meret = parseFloat(root.style.getPropertyValue("--size"));
         meret -= 2;
-        root.style.setProperty("--size", + meret + "px");
+        root.style.setProperty("--size", + meret + "px");*/
     }
 }
 
