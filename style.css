@@ -39,8 +39,8 @@ body {
     width: 480px;
     line-height: 0;
     border-style: solid;
-    border-color: black;
-    border-width: 3px;
+    border-color: red;
+    border-width: 2px;
 }
 
 #footer {
