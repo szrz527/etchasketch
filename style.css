@@ -35,14 +35,12 @@ body {
 }
 
 #grid {
-    box-sizing: border-box;
     padding: 0px;
-    height: 486px;
-    width: 486px;
+    height: 480px;
+    width: 480px;
     line-height: 0;
     border-style: solid;
     border-color: rgb(0,0,0);
-    border-width: 3px;
 }
 
 #footer {
