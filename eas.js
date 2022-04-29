@@ -66,7 +66,6 @@ function egerfolotte_random(e) {
 
 function egerfolotte_arny(e) {
     let rgb = e.target.style.backgroundColor;
-    console.log(rgb);
     let text = rgb.split(",");
     let red = (text[0].slice(4));
     let green, blue;
